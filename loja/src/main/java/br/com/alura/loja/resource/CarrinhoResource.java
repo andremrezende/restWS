@@ -16,9 +16,9 @@ import br.com.alura.loja.dao.CarrinhoDAO;
 public class CarrinhoResource {
 	@GET
 	@Path("{id}")
-    @Produces(MediaType.APPLICATION_XML)
+    @Produces(MediaType.APPLICATION_JSON)
 	public String busca (@PathParam("id") long id) {
 		CarrinhoDAO dao = new CarrinhoDAO();
-		return dao.busca(id).toXML();
+		return dao.busca(id).toJSON();
 	}
 }
