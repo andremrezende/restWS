@@ -53,7 +53,7 @@ public class ClienteTest {
         Assert.assertEquals(201, response.getStatus());
         
         String location = response.getHeaderString("Location");
-        String conteudo = client.target(location).request().get(String.class);
-        Assert.assertTrue(conteudo.contains("Microfone"));
+        carrinho = client.target(location).request().get(Carrinho.class);
+        Assert.assertEquals("Microfone", carrinho.getProdutos().get(0).getNome());
 	}
 }

@@ -1,16 +1,26 @@
 package br.com.alura.loja.modelo;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
+
 /**
  * 
  * @author Rezende
  *
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Projeto {
 	String nome;
 	long id;
 	int anoDeInicio;
+
+	public Projeto() {
+	}
 
 	public Projeto(long id, String nome, int anoDeInicio) {
 		super();
@@ -42,11 +52,11 @@ public class Projeto {
 	public void setAnoDeInicio(int anoDeInicio) {
 		this.anoDeInicio = anoDeInicio;
 	}
-	
+
 	public String toXML() {
 		return new XStream().toXML(this);
 	}
-	
+
 	public String toJSON() {
 		return new Gson().toJson(this);
 	}
